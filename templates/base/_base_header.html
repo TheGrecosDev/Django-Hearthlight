@@ -1,0 +1,29 @@
+<header class="header">
+    <div class="header-container header-grid">
+        <div class="logo hearthlight-logo">
+            <img src="https://drive.google.com/thumbnail?id=1q7J3qJi6goHXm5owlaXQzo8iGfu37xbE">
+        </div>
+
+        <div class="social nav-social">
+            {%include 'widgets/_socials.html' %}
+        </div>
+        
+        <button class="nav-button">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3"><path d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"/></svg>
+            </div>
+        </button>
+
+        <nav class="nav nav-options">
+            <li><a href="#">Play</a></li>
+            <li><a href="#">Rules</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Forums</a></li>
+            <li><a href="#">Resources</a></li>
+        </nav>
+        
+        <div class="user nav-user">
+            {% include 'widgets/_user_avatar.html' %}
+        </div>
+    </div>
+</header>

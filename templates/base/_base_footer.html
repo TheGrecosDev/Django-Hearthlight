@@ -1,0 +1,47 @@
+<footer>
+    <div class="footer-background">
+        <nav class="footer-nav-wrapper">
+            
+            {% comment %} Left footer nav links {% endcomment %}
+            <div class="margin-left open-sans-regular">
+                <p><a href="#">Home</a></p>
+                <p><a href="#">Find a Chapter</a></p>
+                <p><a href="#">Rules</a></p>
+                <p><a href="#">Forums</a></p>
+                <p><a href="#">News</a></p>
+                <p><a href="#">Contact Us</a></p>
+            </div>
+
+            {% comment %} Right footer nav links {% endcomment %}
+            <div class="margin-right open-sans-regular">
+                <p><a href="#">Submit a Waiver</a></p>
+                <p><a href="#">Submit an Incident Report</a></p>
+                <p><a href="#">Become a Hearthlight Member</a></p>
+                <p><a href="#">About the Organization</a></p>
+                <p><a href="#">Wiki</a></p>
+                <p><a href="#">Get Involved</a></p>
+            </div>
+
+            {% comment %} Bottom footer content {% endcomment %}
+            <div class="footer-bottom-wrapper">
+
+                <div class="footer-donate">
+                    <img  src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif">
+                </div>
+
+                <div class="footer-center-text">
+                    <h3>
+                        © 2022   Hearthlight |
+                        <a href="https://www.hearthlightgame.org/privacy-policy">Privacy Policy</a>
+                    </h3>
+                </div>
+
+                {% comment %} Include the socials partial {% endcomment %}
+                <div class="footer-socials nav-social">
+                    {% include 'widgets/_socials.html'%}
+                </div>
+                
+            </div>
+        </nav>
+    </div>
+</footer>

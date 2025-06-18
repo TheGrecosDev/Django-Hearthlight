@@ -1,85 +1,41 @@
-{% extends "base.html" %}
+{% extends "base/base.html" %}
 {% load static %}
+
+{% comment %} Extend the head element of base.html {% endcomment %}
 {% block title %}Hearthlight{% endblock title %}
 {% block head %}
-<style>
+    
+    {% comment %} Add fonts to the mixs {% endcomment %}
+    <!-- Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/hummus" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-    @media screen and (max-height: 450px) {
-=
-    }
-    .hero-text h1 {
-        overflow: visible;
-    }
-    .hero-text span {
-        transition: opacity 0.5s ease-in-out;
-        display: inline-block;
-    }
-    /* The hero image */
-    .hero-image {
-        height: 316px;
-        width: 100vw;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        
-        background-image: linear-gradient(rgba(85, 85, 85, 0.5), rgba(85, 85, 85, 0.5)), url("https://static.wixstatic.com/media/ab7960_2879d2c8a5744911873fa1c32218204c~mv2_d_4284_2397_s_2.jpg/v1/fill/w_1052,h_316,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ab7960_2879d2c8a5744911873fa1c32218204c~mv2_d_4284_2397_s_2.jpg");
-        position: absolute;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
-    /* Heahtlight logo */
-    .hearthlight-logo {
-        padding-top: 50px;
-    }
-    .hero-nav {
-        padding-top: 50px;
-        font-family: sans-serif;
-        font-size: 13px;
-    }
-    .hero-nav a {
-        color: white;
-        text-decoration: none;
-        border-right: 2px solid #bbb;;
-        text-align: center;
-        padding: 16px 25px;
-    }
-    .hero-nav a:last-child {
-        margin-right: 2px;
-        border-right: none;
-    }
-</style>
-{#{{block.super}}#}
+{{block.super}}
+
 {% endblock head %}
 
-
-{% block header %}
-<header class="hero-image">
-    <div >
-        <div class="hero-text">
-            <!-- <button>Hire me</button> -->
-             <div class="hearthlight-logo"><center><img src="https://drive.google.com/thumbnail?id=1q7J3qJi6goHXm5owlaXQzo8iGfu37xbE"></center></div>
-        </div>
-        <nav class="hero-nav">
-            <center><div id="mySidebar" class="sidebar">
-                <a href="#">Play</a>
-                <a href="#">Rules</a>
-                <a href="#">News</a>
-                <a href="#">Forums</a>
-                <a href="#">Resources</a>
-            </div></center>
-        </nav>
-    </div>
-</header>
-{% endblock header %}
-
-
-{% block page_content %}
+{% comment %} Override the body.main element of base.html {% endcomment %}
+{% block main %}
+<main id="body">
     
-{% endblock page_content %}
+    <div class="caudex-regular" >
+        
+        <img class="advanced-float" src="https://static.wixstatic.com/media/ab7960_e185a119cb1a4b60b04e3be4fd0cd624~mv2.png/v1/fill/w_624,h_402,al_c,lg_1,q_85,enc_avif,quality_auto/about_graphic.png" style="padding-top:45px;width:486px;height:313px;object-fit:cover;">
+        
+        <h1>Welcome to Hearthlight.</h1>
+        
+        <p>Hearthlight provides an immersive fantasy-medieval experience to a diverse 
+        community of players in a safe and welcoming environment. 
+        We promote education through participation in medieval arts & sciences
+        and full-contact simulated combat.</p>
+        
+        <p>Whether you want to try your hand at historical handcrafts,
+        join a 50-person shield wall on the battlefield, or simply 
+        be part of a welcoming community; Hearthlight is here for you.</p>
+    
+    </div>
 
-
-{% block script %}
-
-{% endblock script %}
+</main>
+{% endblock main %}

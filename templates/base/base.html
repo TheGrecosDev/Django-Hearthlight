@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <title>Hearthlight</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+        <!-- Base CSS Files -->
+        <link rel="stylesheet" href={% static "css/base.css" %} >
+        <!-- Base CSS Files for partials -->
+        <link rel="stylesheet" href={% static "css/header.css" %} >
+        <link rel="stylesheet" href={% static "css/fonts.css" %} >
+        <link rel="stylesheet" href={% static "css/footer.css" %} >
+    {% endblock head%} 
+    </head>
+    
+
+    <body id="container">
+
+        {% block header %}
+            {% include 'base/_base_header.html' %}
+        {% endblock header%}
+        
+        {% block main %}
+        <main id="body">
+            <center>Hello, World!</center>
+        </main>
+        {% endblock main %}
+
+        {% block footer %}
+            {% include 'base/_base_footer.html' %}
+        {% endblock footer %}
+
+        {% block last_before_script%} {% endblock last_before_script%}
+        {% block preload%}{% endblock preload%}
+
+        <!-- Vendor JS Files -->
+        {% block script %}
+            <script src={% static "assets/vendor/bootstrap/js/bootstrap.bundle.min.js" %}></script>
+        {% endblock %}    
+
+        {% block main_js %}{% endblock main_js %}
+
+    </body>
+</html>
