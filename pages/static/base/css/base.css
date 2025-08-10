@@ -1,0 +1,119 @@
+/*
+    DJANGO Base HTML styles
+*/
+
+:root {
+    --margin: calc(50% - 490px);
+    --Hearthlight-Background-Light: #f7f7f7;
+    --Hearthlight-Footer-Color-Light: #99582a; 
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--Hearthlight-Background-Light);
+    display: grid;
+    grid-template-rows: 
+        min-content /* header */
+        1fr          /* main fills all available space */
+        min-content; /* footer */
+    grid-template-columns: 100%;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    min-height: 100vh; /* fill full viewport height */
+    padding: 0;
+}
+
+.btn-primary {
+    padding: 10px 40px;
+    background-color: var(--Hearthlight-Footer-Color-Light);
+    color: white;
+    border: 4px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+main {
+    grid-area: main;
+    max-width: 980px; /* or whatever fixed width */
+    justify-self: center; /* horizontally center the main content inside the grid area */
+    min-height: 8.5in;
+    padding: 0 1rem; /* optional padding */
+    display: grid;
+    grid-template-rows: auto auto; /* Two rows: one for the logo, one for the content */
+    grid-template-areas:
+        "welcome welcome"
+        "blog links";
+    align-items: start;
+}
+
+#container {
+   min-height:100%;
+   height: 100%;
+}
+
+#body {
+   padding: 10px; 
+   padding-bottom: 60px; /* whitespace before footer */
+   display: grid;
+}
+
+#body>div>h1{
+    font-size: 40px; 
+}
+
+#body>div>p {
+    font-size: 18px; 
+}
+
+
+
+.find-a-chapter-btn {
+    display: flex;
+    padding-left: 20%;
+}
+
+.advanced-float {        
+    display: block;
+    float: right;
+    shape-outside: polygon(30% 0, 100% 0, 100% 100%, 0 100%, 0 87%);
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%, 0 87%);
+}
+
+@media (max-width: 975px) {
+    
+    main {
+        grid-area: main;
+        min-height: 8.5in;
+        align-content: baseline;
+        margin: 0;
+        justify-self: center;
+    }
+    
+    main>div>img.advanced-float {
+        display: none;
+    }
+
+    main>div {
+        text-align: center;
+    }
+
+    #body>div>h1{
+        font-size: 55px; 
+        word-wrap: normal;
+    }
+
+    #body>div>p {
+        font-size: 32px;
+        word-wrap: break-word;
+    }
+
+}

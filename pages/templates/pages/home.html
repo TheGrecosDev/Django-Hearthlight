@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
 {{block.super}}
+    <link rel="stylesheet" href={% static "css/latest_posts.css" %} >
 
 {% endblock head %}
 
@@ -34,8 +35,12 @@
         <p>Whether you want to try your hand at historical handcrafts,
         join a 50-person shield wall on the battlefield, or simply 
         be part of a welcoming community; Hearthlight is here for you.</p>
-    
+
+        {% include 'widgets/_button.html' with url='play' label='Find a Chapter ➤' container_class='find-a-chapter-btn' %}
     </div>
+
+        {% include "widgets/_latest_posts.html" with latest_posts=latest_posts card_width="600px" image_size="280px" card_height="350px" %}
+
 
 </main>
 {% endblock main %}
