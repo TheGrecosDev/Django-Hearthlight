@@ -61,7 +61,6 @@ main {
 }
 
 #body {
-   padding: 10px; 
    padding-bottom: 60px; /* whitespace before footer */
    display: grid;
 }

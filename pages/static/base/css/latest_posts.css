@@ -3,7 +3,8 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(var(--post-card-width, 600px), 1fr));
-    justify-content: center; /* center cards inside blog area */
+    justify-items: baseline;
+    padding-top: 1rem;
 }
 
 .post-card {
@@ -54,8 +55,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-right: 0.5rem;
+    padding: 1.5rem 0.5rem 0 0;
+    border-bottom: black;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
 }
+
 
 .post-meta {
     font-size: 0.85rem;
@@ -92,4 +97,5 @@
     justify-self: center;  /* align stats left */
     align-self: self-end;      /* align stats bottom */
     height: fit-content;  /* shrink to content height */
+    padding: 10px 0 10px 0;
 }
