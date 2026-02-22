@@ -1,0 +1,101 @@
+.latest-posts-widget {
+    grid-area: blog;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(var(--post-card-width, 600px), 1fr));
+    justify-items: baseline;
+    padding-top: 1rem;
+}
+
+.post-card {
+    display: grid;
+    grid-template-areas:
+        "image info"
+        "image stats";
+    grid-template-columns: 1fr 1fr; /* 50% / 50% */
+    grid-template-rows: 1fr fit-content(100%);
+    gap: 0.5rem 1rem;
+
+    max-width: var(--post-card-width, 600px);
+    min-height: var(--post-card-height, 350px);
+
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    transition: box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.post-image {
+    grid-area: image;
+    border-radius: 6px;
+    overflow: hidden;
+
+    width: var(--post-image-size, 100%);
+    aspect-ratio: 1 / 1;
+    height: auto; /* let height adjust based on width */
+    justify-self: center; /* center image horizontally */
+    align-self: center;   /* center image vertically */
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+}
+
+.post-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.5rem 0.5rem 0 0;
+    border-bottom: black;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+}
+
+
+.post-meta {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.post-title {
+    margin: 0.25rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.post-title a {
+    text-decoration: none;
+    color: #222;
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+}
+
+.post-tagline {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.post-stats {
+    grid-area: stats;
+    font-size: 0.8rem;
+    color: #888;
+    display: flex;
+    gap: 1rem;
+
+    justify-self: center;  /* align stats left */
+    align-self: self-end;      /* align stats bottom */
+    height: fit-content;  /* shrink to content height */
+    padding: 10px 0 10px 0;
+}

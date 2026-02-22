@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from os import getenv
+from .jazmin_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +27,12 @@ SECRET_KEY = getenv("DJANGO_SECRET_KEY", "insecure_django_secret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1",]
+ALLOWED_HOSTS = ["127.0.0.1", "thegrecos.dev",]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://thegrecos.dev",
+    "https://www.thegrecos.dev",
+]
 
 # Application definition
 
@@ -56,6 +61,7 @@ INSTALLED_APPS = [
 
     # Nicer Django Admin Panel
     'jazzmin',
+    'django_bootstrap_icons',
 
     # Django Apps
     'django.contrib.admin',
@@ -80,7 +86,7 @@ MIDDLEWARE = [
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
-ROOT_URLCONF = 'Hearthlight.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -99,7 +105,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Hearthlight.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database

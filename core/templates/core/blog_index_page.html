@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% block title %}Hearthlight News{% endblock title %}
+{% block head %}
+    
+    {% comment %} Add fonts to the mixs {% endcomment %}
+    <!-- Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/hummus" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+{{block.super}}
+    <link rel="stylesheet" href={% static "css/latest_posts.css" %} >
+
+{% endblock head %}
+
+{% block main %}
+
+<main class="blog-index-page">
+
+    {% include 'widgets/_post_nav_bar.html' %}
+
+    {% include 'widgets/_latest_post.html' with page=page %}
+
+</main>
+
+{% endblock main %}

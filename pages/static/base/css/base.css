@@ -47,8 +47,11 @@ main {
     justify-self: center; /* horizontally center the main content inside the grid area */
     min-height: 8.5in;
     padding: 0 1rem; /* optional padding */
+}
+
+.home-page {
     display: grid;
-    grid-template-rows: auto auto; /* Two rows: one for the logo, one for the content */
+    grid-template-rows: auto auto;
     grid-template-areas:
         "welcome welcome"
         "blog links";

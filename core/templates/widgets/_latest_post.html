@@ -1,0 +1,42 @@
+{% load static %}
+{% load wagtailimages_tags wagtailcore_tags %}
+<div id="blog-index-page-body">
+{% block content %}
+    <div class="intro">{{ page.intro|richtext }}</div>
+
+<div class="latest-posts-widget">
+{% for post in page.get_children %}
+            <div class="post-card">
+                {% if post.gallery_imagesl %}
+                    <div class="post-image">
+                        <a href="{{ post.url }}">
+                            <img src="{{ post.gallery_images }}"">
+                        </a>
+                    </div>
+                {% else %}
+                    
+                {% endif %}
+                <div class="post-info">
+                    <div class="post-meta">
+                        <span class="post-author">{{ post.owner.get_full_name|default:post.owner.username }}</span>
+                    </div>
+                    <h2 class="post-title">
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                    </h2>
+                    {% if post.specific.intro %}
+                        <p class="post-tagline">{{ post.specific.intro|richtext }}</p>
+                    {% endif %}
+                </div>
+                <div class="post-stats">
+                    <span class="views">{{ post.views }} views</span>
+                    <span class="likes">{{ post.likes }} likes</span>
+                </div>
+            </div>
+        {% empty %}
+            <p>No posts yet.</p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+</div>

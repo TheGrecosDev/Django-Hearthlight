@@ -1,0 +1,71 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load wagtailimages_tags wagtailcore_tags %}
+{% block title %}Hearthlight{% endblock title %}
+{% block head %}
+    
+    {% comment %} Add fonts to the mixs {% endcomment %}
+    <!-- Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/hummus" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+{{block.super}}
+    <link rel="stylesheet" href={% static "css/latest_posts.css" %} >
+
+{% endblock head %}
+
+
+{% block main %}
+    <main id="body" class="blog-page">
+        {% block content %}
+        <h1>{{ page.title }}</h1>
+        <p class="meta">{{ page.date }}</p>
+
+        {% with authors=page.authors.all %}
+            {% if authors %}
+                <h3>Posted by:</h3>
+                <ul>
+                    {% for author in authors %}
+                        <li style="display: inline; margin-right: 10px;">
+                            {% if author.author_image %}
+                                {% image author.author_image fill-40x60 style="vertical-align: middle" %}
+                            {% endif %}
+                            {{ author.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <div class="intro">
+            {{ page.intro|richtext }}
+        </div>
+        
+        {{ page.body|richtext }}
+
+        {% for item in page.gallery_images.all %}
+            <div style="display: inline-block; margin: 10px;">
+                {% if item.image %}
+                    {% image item.image fill-320x240 %}
+                {% endif %}
+                <p>{{ item.caption }}</p>
+            </div>
+        {% endfor %}
+
+        <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+
+        {% with tags=page.tags.all %}
+            {% if tags %}
+                <div class="tags">
+                    <h3>Tags</h3>
+                    {% for tag in tags %}
+                        <a href="/posts/?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% endblock %}
+    </main>
+{%endblock %}
